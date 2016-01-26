@@ -1,3 +1,4 @@
+#include<stdlib.h>
 #include<stdio.h>
 
 int main(int argc, char *argv[]) {
@@ -7,13 +8,14 @@ int main(int argc, char *argv[]) {
     input = fopen(argv[1], "r");
     output = fopen(argv[2], "w");
 
-    int counter = 1;
+    int counter = 0;
     int prevbyte = 0x00;
     int byte = fgetc(input);
 
     while(byte != EOF) {
         if(byte != prevbyte) {
             fputc(counter, output);
+            fputc(prevbyte, output);
             counter = 1;
         } else {
             counter++;
