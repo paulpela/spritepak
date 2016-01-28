@@ -26,6 +26,11 @@ int main(int argc, char *argv[]) {
     FILE *input;
     FILE *output;
 
+    if(argc != 3) {
+        printf("spritepak requires two arguments.\n");
+        exit(1);
+    }
+
     input = fopen(argv[1], "r");
 
     if(!input) {
