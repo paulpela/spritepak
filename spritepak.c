@@ -45,9 +45,17 @@ int main(int argc, char *argv[]) {
         exit (1);
     }
 
+    int byte;
     int counter = 0;
     int prevbyte = 0x00;
-    int byte = fgetc(input);
+    int i;
+
+    for(i = 0; i < 4; i++) {
+        byte = fgetc(input);
+        fputc(byte, output);
+    }
+
+    byte = fgetc(input);
 
     while(byte != EOF) {
         if(byte != prevbyte) {
