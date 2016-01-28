@@ -70,6 +70,10 @@ int main(int argc, char *argv[]) {
         byte = fgetc(input);
     }
 
+    // terminating 0x0000
+    fputc(0x00, output);
+    fputc(0x00, output);
+
     fclose(input);
     fclose(output);
     exit(0);
